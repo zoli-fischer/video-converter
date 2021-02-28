@@ -1,0 +1,25 @@
+{
+    "parser": "babel-eslint",
+    "extends": [
+        "airbnb",
+        "plugin:jest/recommended",
+        "jest-enzyme"
+    ],
+    "rules": {
+        "import/prefer-default-export": 0,
+        "import/extensions": 0,
+        "import/order": 0
+    },
+    "settings": {
+        "import/resolver": {
+            "webpack": {}
+        }
+    },
+    "plugins": [
+        "json"
+    ],
+    "globals": {
+        "window": false,
+        "document": false
+    }
+}
