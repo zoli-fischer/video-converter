@@ -25,12 +25,7 @@ class FileSystem {
     }
     
     isVideo(path) {
-        return this.isMP4(path) || (
-            this.getFileExtension(path) === 'avi' ||
-            this.getFileExtension(path) === 'mkv' ||
-            this.getFileExtension(path) === 'wmv' ||
-            this.getFileExtension(path) === 'mov'
-        );
+        return this.isMP4(path) || /^(avi|mkv|wmv|mov|vob)$/i.test(this.getFileExtension(path));
     }
 
     isMP4(path) {
