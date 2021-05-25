@@ -1,4 +1,9 @@
+import 'dotenv/config';
 import path from 'path';
+
+const {
+    DEFAULT_CRF = 24, MAX_WIDTH = 1920
+} = process.env
 
 const config = {
     path: {
@@ -8,9 +13,11 @@ const config = {
         temp: path.resolve(__dirname, '../temp'),
     },
     video: {
-        defaultCRF: 16,
-        maxWidth: 1920,
+        defaultCRF: DEFAULT_CRF,
+        maxWidth: MAX_WIDTH,
     },
 };
+
+console.log('Congif: ', config);
 
 export default config;

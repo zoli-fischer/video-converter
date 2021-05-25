@@ -9,3 +9,5 @@ export const execute = cmd => new Promise(function (resolve, reject) {
         }
     });
 });
+
+export const delay = ms => new Promise(res => setTimeout(res, ms));

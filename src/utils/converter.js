@@ -1,5 +1,5 @@
 import config from '../config';
-import { execute } from './execute';
+import { execute, delay } from './execute';
 import fileSystem from './file_system';
 import fsExtra from 'fs-extra';
 import fs from 'fs';
@@ -54,6 +54,7 @@ class Converter {
             const cmd = `ffmpeg -i "${originalFile}" -c:v h264 -c:a aac -crf ${qualityCRF} -vf "scale='min(${maxWidth},iw)':-2" -map 0:a:0 -map 0:a:1? -map 0:v:0 "${tempFile}"`;
             console.log(cmd);
             await execute(cmd);
+            await delay(5000);
 
             const { size: tempSize } = fs.statSync(tempFile);
             const { size: originalSize } = fs.statSync(originalFile);
