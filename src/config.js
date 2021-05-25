@@ -8,7 +8,7 @@ const config = {
         temp: path.resolve(__dirname, '../temp'),
     },
     video: {
-        defaultCRF: 18,
+        defaultCRF: 16,
         maxWidth: 1920,
     },
 };
