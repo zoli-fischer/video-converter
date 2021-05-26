@@ -56,15 +56,7 @@ class Converter {
             await execute(cmd);
             await delay(5000);
 
-            const { size: tempSize } = fs.statSync(tempFile);
-            const { size: originalSize } = fs.statSync(originalFile);
-
-            if (tempSize <= originalSize) {
-                fsExtra.moveSync(tempFile, outFile, { overwrite: true });
-            } else {
-                fsExtra.copySync(originalFile, outFile, { overwrite: true });
-                fsExtra.removeSync(tempFile);
-            }
+            fsExtra.moveSync(tempFile, outFile, { overwrite: true });
         } else if (isMP4) {
             fsExtra.ensureDir(nodePath.dirname(outFile));
             fsExtra.copySync(originalFile, outFile, { overwrite: true });
