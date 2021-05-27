@@ -51,7 +51,7 @@ class Converter {
             tempFile = isMP4 ? tempFile : tempFile.split('.').slice(0, -1).join('.')+'.mp4';
             fsExtra.ensureDir(nodePath.dirname(outFile));
             fsExtra.ensureDir(nodePath.dirname(tempFile));
-            const cmd = `ffmpeg -i "${originalFile}" -c:v h264 -c:a aac -crf ${qualityCRF} -vf "scale='min(${maxWidth},iw)':-2" -map 0:a:0 -map 0:a:1? -map 0:v:0 "${tempFile}"`;
+            const cmd = `ffmpeg -i "${originalFile}" -c:v h264 -c:a aac -crf ${qualityCRF} -vf "scale='min(${maxWidth},iw)':-2" -map 0:a:0? -map 0:a:1? -map 0:v:0 "${tempFile}"`;
             console.log(cmd);
             await execute(cmd);
             await delay(5000);
