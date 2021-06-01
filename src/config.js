@@ -13,8 +13,8 @@ const config = {
         temp: path.resolve(__dirname, '../temp'),
     },
     video: {
-        defaultCRF: DEFAULT_CRF,
-        maxWidth: MAX_WIDTH,
+        defaultCRF: parseInt(DEFAULT_CRF, 10),
+        maxWidth: parseInt(MAX_WIDTH, 10),
     },
 };
 
